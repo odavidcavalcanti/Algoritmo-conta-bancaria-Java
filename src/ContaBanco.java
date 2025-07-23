@@ -73,6 +73,16 @@ public class ContaBanco {
         }
     }
 
+    public void depositarConta(float valorDeposito) {
+        if (getStatusConta()) {
+            setSaldoConta((saldoConta += valorDeposito));
+            System.out.println("Depósito realizado com sucesso!");
+        }
+        else {
+            System.out.println("ERRO: Não é possível depositar, essa conta está fechada!");
+        }
+    }
+
     public void consultaConta() {
         System.out.printf(
                 "Consulta de conta:%n%n" +
