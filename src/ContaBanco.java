@@ -75,11 +75,33 @@ public class ContaBanco {
 
     public void depositarConta(float valorDeposito) {
         if (getStatusConta()) {
-            setSaldoConta((saldoConta += valorDeposito));
+            setSaldoConta((this.saldoConta += valorDeposito));
             System.out.println("Depósito realizado com sucesso!");
         }
         else {
             System.out.println("ERRO: Não é possível depositar, essa conta está fechada!");
+        }
+    }
+
+    public void sacarConta(float valorSaque) {
+        if (!getStatusConta()) {
+            System.out.println("ERRO: Não é possível sacar, essa conta está fechada");
+        }
+        else {
+            if (valorSaque > getSaldoConta()) {
+                System.out.println("ERRO: Saldo insuficiente");
+            }
+
+            else {
+                if (valorSaque <= 0.0f) {
+                    System.out.println("ERRO: Insira um valor maior que zero");
+                }
+                else {
+                    setSaldoConta((this.saldoConta -= valorSaque));
+                    System.out.println("Saque realizado com sucesso!");
+                }
+            }
+
         }
     }
 
@@ -98,6 +120,4 @@ public class ContaBanco {
                 getStatusConta()
         );
     }
-
-
 }
