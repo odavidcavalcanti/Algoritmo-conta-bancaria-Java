@@ -5,6 +5,14 @@ public class ContaBanco {
     private float saldoConta;
     private boolean statusConta;
 
+    public ContaBanco(int numConta, char tipoConta, String donoConta) {
+        setNumConta(numConta);
+        setTipoConta(tipoConta);
+        setDonoConta(donoConta);
+        setSaldoConta(0.0f);
+        setStatusConta(true);
+    }
+
     public int getNumConta() {
         return this.numConta;
     }
@@ -44,5 +52,22 @@ public class ContaBanco {
     public void setStatusConta(boolean statusConta) {
         this.statusConta = statusConta;
     }
+
+    public void consultaConta() {
+        System.out.printf(
+                "Consulta de conta:%n%n" +
+                "Número da conta: %d%n" +
+                "Tipo de conta: %c%n" +
+                "Titular da conta: %s%n" +
+                "Saldo da conta: %.2f%n" +
+                "Status da conta: %b%n",
+                getNumConta(),
+                getTipoConta(),
+                getDonoConta(),
+                getSaldoConta(),
+                getStatusConta()
+        );
+    }
+
 
 }
