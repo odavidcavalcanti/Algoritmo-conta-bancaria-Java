@@ -63,6 +63,16 @@ public class ContaBanco {
         }
     }
 
+    public void reativarConta() {
+        if (getStatusConta()) {
+            System.out.println("ERRO: Essa conta já está ativa");
+        }
+        else {
+            setStatusConta(true);
+            System.out.println("Conta reativada com sucesso!");
+        }
+    }
+
     public void consultaConta() {
         System.out.printf(
                 "Consulta de conta:%n%n" +
