@@ -53,6 +53,16 @@ public class ContaBanco {
         this.statusConta = statusConta;
     }
 
+    public void fecharConta() {
+        if (getSaldoConta() > 0) {
+            System.out.println("ERRO: Não é possível fechar uma conta que contém saldo");
+        }
+        else {
+            setStatusConta(false);
+            System.out.println("Conta fechada com sucesso!");
+        }
+    }
+
     public void consultaConta() {
         System.out.printf(
                 "Consulta de conta:%n%n" +
