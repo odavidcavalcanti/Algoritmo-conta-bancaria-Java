@@ -9,8 +9,14 @@ public class ContaBanco {
         setNumConta(numConta);
         setTipoConta(tipoConta);
         setDonoConta(donoConta);
-        setSaldoConta(0.0f);
         setStatusConta(true);
+
+        if (tipoConta == 'C') {
+            setSaldoConta(20.0f);
+        }
+        else {
+            setSaldoConta(50.0f);
+        }
     }
 
     public int getNumConta() {
