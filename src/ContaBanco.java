@@ -6,16 +6,16 @@ public class ContaBanco {
     private boolean statusConta;
 
     public ContaBanco(char tipoConta, String donoConta) {
-        setNumConta(gerarNumConta());
-        setTipoConta(tipoConta);
-        setDonoConta(donoConta);
-        setStatusConta(true);
+        this.setNumConta(gerarNumConta());
+        this.setTipoConta(tipoConta);
+        this.setDonoConta(donoConta);
+        this.setStatusConta(true);
 
         if (tipoConta == 'C') {
-            setSaldoConta(20.0f);
+            this.setSaldoConta(20.0f);
         }
         else {
-            setSaldoConta(50.0f);
+            this.setSaldoConta(50.0f);
         }
     }
 
@@ -64,17 +64,17 @@ public class ContaBanco {
     }
 
     public void fecharConta() {
-        if (getSaldoConta() > 0) {
+        if (this.getSaldoConta() > 0) {
             System.out.println("ERRO: Não é possível fechar uma conta que contém saldo");
         }
         else {
-            setStatusConta(false);
+            this.setStatusConta(false);
             System.out.println("Conta fechada com sucesso!");
         }
     }
 
     public void reativarConta() {
-        if (getStatusConta()) {
+        if (this.getStatusConta()) {
             System.out.println("ERRO: Essa conta já está ativa");
         }
         else {
@@ -84,8 +84,8 @@ public class ContaBanco {
     }
 
     public void depositarConta(float valorDeposito) {
-        if (getStatusConta()) {
-            setSaldoConta((this.saldoConta += valorDeposito));
+        if (this.getStatusConta()) {
+           this.setSaldoConta((this.getSaldoConta() + valorDeposito));
             System.out.println("Depósito realizado com sucesso!");
         }
         else {
@@ -94,11 +94,11 @@ public class ContaBanco {
     }
 
     public void sacarConta(float valorSaque) {
-        if (!getStatusConta()) {
+        if (!this.getStatusConta()) {
             System.out.println("ERRO: Não é possível sacar, essa conta está fechada");
         }
         else {
-            if (valorSaque > getSaldoConta()) {
+            if (valorSaque > this.getSaldoConta()) {
                 System.out.println("ERRO: Saldo insuficiente");
             }
 
@@ -107,7 +107,7 @@ public class ContaBanco {
                     System.out.println("ERRO: Insira um valor maior que zero");
                 }
                 else {
-                    setSaldoConta((this.saldoConta -= valorSaque));
+                    this.setSaldoConta(this.getSaldoConta() - valorSaque);
                     System.out.println("Saque realizado com sucesso!");
                 }
             }
@@ -123,11 +123,11 @@ public class ContaBanco {
                 "Titular da conta: %s%n" +
                 "Saldo da conta: %.2f%n" +
                 "Status da conta: %b%n",
-                getNumConta(),
-                getTipoConta(),
-                getDonoConta(),
-                getSaldoConta(),
-                getStatusConta()
+                this.getNumConta(),
+                this.getTipoConta(),
+                this.getDonoConta(),
+                this.getSaldoConta(),
+                this.getStatusConta()
         );
     }
 }
