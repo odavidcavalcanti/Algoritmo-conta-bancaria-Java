@@ -5,8 +5,8 @@ public class ContaBanco {
     private float saldoConta;
     private boolean statusConta;
 
-    public ContaBanco(int numConta, char tipoConta, String donoConta) {
-        setNumConta(numConta);
+    public ContaBanco(char tipoConta, String donoConta) {
+        setNumConta(gerarNumConta());
         setTipoConta(tipoConta);
         setDonoConta(donoConta);
         setStatusConta(true);
@@ -17,6 +17,10 @@ public class ContaBanco {
         else {
             setSaldoConta(50.0f);
         }
+    }
+
+    private int gerarNumConta() {
+        return (int) (Math.random() * (999999 - 1 + 1) +1);
     }
 
     public int getNumConta() {
